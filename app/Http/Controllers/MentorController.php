@@ -8,6 +8,33 @@ use Illuminate\Support\Facades\Validator;
 
 class MentorController extends Controller
 {
+    public function index()
+    {
+        $mentor = Mentor::all();
+
+        return response()->json([
+            'status' => "success",
+            "data" => $mentor
+        ]);
+    }
+
+    public function show($id)
+    {
+        $mentor = Mentor::find($id);
+
+        if (!$mentor) {
+            return response()->json([
+                "status" => "error",
+                "message" => "Mentor tidak ditemukan"
+            ], 404);
+        }
+
+        return response()->json([
+            "status" => "success",
+            "data" => $mentor
+        ]);
+    }
+
     public function create(Request $request)
     {
         $role = [
@@ -34,5 +61,62 @@ class MentorController extends Controller
             "status" => "success",
             "data" => $mentor
         ], 200);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $role = [
+            "name" => "string",
+            "email" => "email",
+            "profile" => "url",
+            "profession" => "string"
+        ];
+
+        $data = $request->all();
+
+        $valid = Validator::make($data, $role);
+
+        if ($valid->fails()) {
+            return response()->json([
+                "status" => "error",
+                "message" => $valid->errors()
+            ], 400);
+        }
+
+        $mentor = Mentor::find($id);
+
+        if (!$mentor) {
+            return response()->json([
+                "status" => "error",
+                "message" => "Mentor tidak ditemukan"
+            ], 404);
+        }
+
+        $mentor->fill($data)->save();
+
+        return response()->json([
+            "status" => "success",
+            "data" => $mentor
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $mentor = Mentor::find($id);
+
+        if (!$mentor) {
+            return response()->json([
+                "status" => "error",
+                "message" => "Mentor tidak ditemukan"
+            ]);
+        }
+
+        $mentor->delete();
+
+        return response()->json([
+            "status" => "success",
+            "message" => "Mentor berhasil dihapus"
+        ]);
     }
 }
