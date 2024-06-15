@@ -15,7 +15,7 @@ class MentorController extends Controller
         return response()->json([
             'status' => "success",
             "data" => $mentor
-        ]);
+        ], 200);
     }
 
     public function show($id)
@@ -32,7 +32,7 @@ class MentorController extends Controller
         return response()->json([
             "status" => "success",
             "data" => $mentor
-        ]);
+        ], 200);
     }
 
     public function create(Request $request)
@@ -98,7 +98,7 @@ class MentorController extends Controller
         return response()->json([
             "status" => "success",
             "data" => $mentor
-        ]);
+        ], 200);
     }
 
     public function destroy($id)
@@ -109,7 +109,7 @@ class MentorController extends Controller
             return response()->json([
                 "status" => "error",
                 "message" => "Mentor tidak ditemukan"
-            ]);
+            ], 404);
         }
 
         $mentor->delete();
@@ -117,6 +117,6 @@ class MentorController extends Controller
         return response()->json([
             "status" => "success",
             "message" => "Mentor berhasil dihapus"
-        ]);
+        ], 200);
     }
 }
