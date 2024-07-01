@@ -47,7 +47,7 @@ class ChapterController extends Controller
         if (!$course) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data tidak ditemukan'
+                'message' => 'Data course tidak ditemukan'
             ], 404);
         }
 
@@ -81,7 +81,7 @@ class ChapterController extends Controller
         if (!$chapter) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data chpater tidak ditemukan'
+                'message' => 'Data chapter tidak ditemukan'
             ], 404);
         }
 
@@ -92,7 +92,7 @@ class ChapterController extends Controller
             if (!$course) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Data kursus tidak ditemukan'
+                    'message' => 'Data course tidak ditemukan'
                 ], 404);
             }
         }
@@ -112,7 +112,7 @@ class ChapterController extends Controller
         if (!$chapter) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data chapter '
+                'message' => 'Data chapter tidak ditemukan'
             ], 404);
         }
 

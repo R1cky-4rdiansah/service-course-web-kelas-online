@@ -62,7 +62,7 @@ class CourseController extends Controller
         if (!$mentor) {
             return response()->json([
                 "status" => "error",
-                'message' => "Mentor tidak ditemukan",
+                'message' => "Data mentor tidak ditemukan",
             ], 404);
         }
 
@@ -104,7 +104,7 @@ class CourseController extends Controller
         if (!$course) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data tidak ditemukan',
+                'message' => 'Data course tidak ditemukan',
             ], 404);
         }
 
@@ -135,7 +135,7 @@ class CourseController extends Controller
         if (!$course) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data tidak ditemukan'
+                'message' => 'Data course tidak ditemukan'
             ], 404);
         }
 
@@ -143,7 +143,7 @@ class CourseController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Data berhasil dihapus'
+            'message' => 'Data course berhasil dihapus'
         ], 200);
     }
 }
