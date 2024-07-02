@@ -26,7 +26,7 @@ function getUserIds($userIds = [])
     try {
         if (count($userIds) === 0) {
             return [
-                'status' => 'sucess',
+                'status' => 'success',
                 'data' => [],
                 'http_code' => 200
             ];

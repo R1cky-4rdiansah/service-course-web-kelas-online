@@ -51,8 +51,6 @@ Route::get("my-courses", [MyCourseController::class, 'index']);
 Route::post("my-courses", [MyCourseController::class, 'create']);
 
 //Route Review
-Route::get("reviews", [ReviewController::class, 'index']);
-Route::get("reviews/{id}", [ReviewController::class, 'show']);
 Route::post("reviews", [ReviewController::class, 'create']);
 Route::put("reviews/{id}", [ReviewController::class, 'update']);
 Route::delete("reviews/{id}", [ReviewController::class, 'destroy']);
