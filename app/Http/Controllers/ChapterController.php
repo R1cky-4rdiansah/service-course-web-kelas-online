@@ -37,7 +37,7 @@ class ChapterController extends Controller
         if ($valid->fails()) {
             return response()->json([
                 'status' => 'error',
-                'message' => $valid->error()
+                'message' => $valid->errors()
             ], 400);
         }
 
@@ -61,8 +61,8 @@ class ChapterController extends Controller
     public function update(Request $request, $id)
     {
         $role = [
-            'name' => 'required|string',
-            'course_id' => 'required|integer'
+            'name' => 'string',
+            'course_id' => 'integer'
         ];
 
         $data = $request->all();
@@ -72,7 +72,7 @@ class ChapterController extends Controller
         if ($valid->fails()) {
             return response()->json([
                 'status' => 'error',
-                'message' => $valid->error()
+                'message' => $valid->errors()
             ], 400);
         }
 
