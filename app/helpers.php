@@ -44,3 +44,22 @@ function getUserIds($userIds = [])
         ];
     }
 }
+
+function postOrder($params)
+{
+    $url = env('SERVICE_ORDER_URL') . "api/orders";
+
+    try {
+        $response = Http::post($url, $params);
+        $data = $response->json();
+        $data["http_code"] = $response->getStatusCode();
+        return $data;
+    } catch (\Throwable $th) {
+        return [
+            "status" => "error",
+            "message" => $th->getMessage(),
+            "http_code" => 500
+        ];
+    }
+
+}
