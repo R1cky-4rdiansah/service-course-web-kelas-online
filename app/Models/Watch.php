@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Lesson extends Model
+class Watch extends Model
 {
     use HasFactory;
 
-    protected $table = "lessons";
+    protected $table = "watch";
 
     protected $casts = [
         "created_at" => "datetime:Y-m-d H:m:s",
@@ -18,11 +17,6 @@ class Lesson extends Model
     ];
 
     protected $fillable = [
-        "name", "video", "chapter_id"
+        "user_id", "lesson_id"
     ];
-
-    public function watch(): HasMany
-    {
-        return $this->hasMany(Watch::class);
-    }
 }

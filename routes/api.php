@@ -7,7 +7,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ImageCourseController;
 use App\Http\Controllers\MyCourseController;
 use App\Http\Controllers\ReviewController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\WatchController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/user', function (Request $request) {
@@ -55,3 +55,6 @@ Route::post("my-courses/premium", [MyCourseController::class, 'createPremiumAcce
 Route::post("reviews", [ReviewController::class, 'create']);
 Route::put("reviews/{id}", [ReviewController::class, 'update']);
 Route::delete("reviews/{id}", [ReviewController::class, 'destroy']);
+
+//Route Review
+Route::post("watch", [WatchController::class, 'create']);

@@ -35,7 +35,7 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        $course = Course::with('mentor')->with('chapter.lesson')->with('images')->find($id);
+        $course = Course::with('mentor')->with('chapter.lesson.watch')->with('images')->find($id);
         if (!$course) {
             return response()->json([
                 'status' => 'error',
