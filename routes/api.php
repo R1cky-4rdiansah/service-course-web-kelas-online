@@ -56,5 +56,5 @@ Route::post("reviews", [ReviewController::class, 'create']);
 Route::put("reviews/{id}", [ReviewController::class, 'update']);
 Route::delete("reviews/{id}", [ReviewController::class, 'destroy']);
 
-//Route Review
+//Route Watch
 Route::post("watch", [WatchController::class, 'create']);
