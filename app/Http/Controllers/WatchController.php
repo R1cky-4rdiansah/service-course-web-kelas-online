@@ -29,9 +29,9 @@ class WatchController extends Controller
         $duplicate = Watch::where("user_id", $request->user_id)->where("lesson_id", $request->lesson_id)->count();
         if ($duplicate > 0) {
             return response()->json([
-                "status" => "error",
+                "status" => "success",
                 "message" => "Lesson sudah ditonton"
-            ], 409);
+            ], 200);
         }
 
         $watch = Watch::create($data);
